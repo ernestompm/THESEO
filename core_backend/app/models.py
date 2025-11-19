@@ -149,3 +149,12 @@ class Medallist(Base):
         UniqueConstraint('event_id', 'participant_id', name='_event_participant_medal_uc'),
         # Podríamos añadir también ('event_id', 'medal_type') si queremos asegurar solo un oro, etc.
     )
+
+class TournamentInfo(Base):
+    __tablename__ = 'tournament_info'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(255), nullable=False)
+    logo_path_local = Column(Text)
+    logo_url_cloud = Column(Text)
+    website_url = Column(Text)
